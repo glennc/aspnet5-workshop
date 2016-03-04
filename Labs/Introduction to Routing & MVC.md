@@ -64,7 +64,8 @@
   ``` JSON
   "dependencies": {
     ...,
-    "Microsoft.AspNet.Mvc": "6.0.0-*"
+    "Microsoft.AspNet.Mvc": "6.0.0-*",
+    "Microsoft.NETCore.Platforms": "1.0.1-*
   }
   ```
 1. Add a "Controllers" folder to your application
@@ -88,7 +89,7 @@
   public void Configure(IApplicationBuilder app)
   {
       ...
-      services.UseMvc();
+      app.UseMvc();
   }
   ```
 1. Run the site and verify the message is returned from your MVC controller
