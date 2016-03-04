@@ -8,7 +8,7 @@
   ``` JSON
   "dependencies": {
     ...,
-    "Microsoft.AspNet.Routing.Extensions": "1.0.0-*"
+    "Microsoft.AspNetCore.Routing.Extensions": "1.0.0-*"
   }
   ```
 1. Open the `Startup.cs` file
