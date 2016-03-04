@@ -11,7 +11,7 @@
    <?xml version="1.0" encoding="utf-8"?>
    <configuration>
    <packageSources>
-       <add key="AspNetCiDev" value="https://www.myget.org/F/aspnetcidev/api/v3/index.json" />
+       <add key="AspNetvnext" value="https://www.myget.org/F/aspnetvnext/api/v3/index.json" />
        <add key="NuGet" value="https://api.nuget.org/v3/index.json" />
    </packageSources>
    </configuration>
@@ -23,7 +23,7 @@
 
   ```JSON
   "dependencies": {
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*"
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*"
   },
   ```
 
@@ -48,7 +48,7 @@
   public static void Main(string[] args)
   {
       var host = new WebHostBuilder()
-                  .UseServer("Microsoft.AspNet.Server.Kestrel")
+                  .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                   .UseUrls("http://localhost:5001")
                   .UseStartup<Startup>()
                   .Build();
@@ -66,7 +66,7 @@
   public static void Main(string[] args)
   {
       var host = new WebHostBuilder()
-                  .UseServer("Microsoft.AspNet.Server.Kestrel")
+                  .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                   .UseUrls("http://localhost:5001")
                   .UseEnvironment(EnvironmentName.Development)
                   .UseStartup<Startup>()
@@ -83,7 +83,7 @@
 
   ```JSON
   {
-    "server": "Microsoft.AspNet.Server.Kestrel",
+    "server": "Microsoft.AspNetCore.Server.Kestrel",
     "server.urls": "http://localhost:5001"
   }
   ```
@@ -93,7 +93,7 @@
   ```C#
   public static void Main(string[] args)
   {
-      var host = new WebApplicationBuilder()
+      var host = new WebHostBuilder()
                   .UseDefaultConfiguration(args)
                   .UseStartup<Startup>()
                   .Build();
@@ -121,8 +121,8 @@
 
   ```JSON
   "dependencies": {
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-*"
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-*"
   },
   ```
 1. Go to `Startup.cs` in the `Configure` method and add `UseStaticFiles` before the hello world middleware:
@@ -169,9 +169,9 @@
 
   ```JSON
   "dependencies": {
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-*",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-*"
+    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-*"
   },
   ```
 1. Add `UseIISPlatformHandlerUrl()` to the `Main` method in `Program.cs`:
@@ -179,7 +179,7 @@
   ```C#
   public static void Main(string[] args)
   {
-      var host = new WebApplicationBuilder()
+      var host = new WebHostBuilder()
                   .UseDefaultConfiguration(args)
                   .UseIISPlatformHandlerUrl()
                   .UseStartup<Startup>()
